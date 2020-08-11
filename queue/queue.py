@@ -16,23 +16,57 @@ Stretch: What if you could only use instances of your Stack class to implement t
 import collections
 
 
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+
+#     def __len__(self):
+#         return self.size
+
+#     def enqueue(self, value):
+#         self.storage.append(value)
+#         self.size = len(self.storage)
+#         return self.storage
+
+#     def dequeue(self):
+#         if self.size == 0:
+#             return None
+#         else:
+#             data = self.storage.pop(0)
+#             self.size = len(self.storage)
+#             return data
+
+from singly_linked_list import LinkedList
+
+
 class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = LinkedList()
 
     def __len__(self):
         return self.size
 
     def enqueue(self, value):
-        self.storage.append(value)
-        self.size = len(self.storage)
-        return self.storage
+        self.storage.add_to_tail(value)
+        self.size += 1
 
     def dequeue(self):
         if self.size == 0:
             return None
-        else:
-            data = self.storage.pop(0)
-            self.size = len(self.storage)
-            return data
+        self.size -= 1
+        return self.storage.remove_head()
+
+
+# Queue
+# Line type of information
+# Pops off head
+# Add to tail
+# A Head <- B <- C <- D Tail
+
+# Stack
+# Pez dispenser type of list
+# Add to tail
+# Pops off end
+# A Head <- B <- C <- D Tail
