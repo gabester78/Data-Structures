@@ -40,11 +40,19 @@ class DoublyLinkedList:
             self.head = new_node
             self.tail = new_node
         else:
+<<<<<<< HEAD
             # set new node link to previous head
             new_node.next = self.head
             # set old head link to new node
             self.head.prev = new_node
             # set new node as head
+=======
+            #set new node link to previous head
+            new_node.next = self.head
+            #set old head link to new node
+            self.head.prev = new_node
+            #set new node as head
+>>>>>>> 64d3de11856a0c0d613d4338cb60ab358c412f15
             self.head = new_node
 
     """
@@ -160,6 +168,7 @@ class DoublyLinkedList:
     """
 
     def get_max(self):
+<<<<<<< HEAD
         # checks if list is empty if so returns none
         if not self.head:
             return None
@@ -176,4 +185,22 @@ class DoublyLinkedList:
             # checks next for another comparison
             current = current.next
         # gives max value of list
+=======
+        #checks if list is empty if so returns none
+        if not self.head:
+            return None
+        #sets inital value as head value
+        max_val = self.head.value
+        #checks next node in line
+        current = self.head
+        #loop through the list
+        while current:
+            #compare if current value is great than max value
+            if current.value > max_val:
+                #if current value is great, current value is now max value
+                max_val = current.value
+            #checks next for another comparison
+            current = current.next
+        #gives max value of list
+>>>>>>> 64d3de11856a0c0d613d4338cb60ab358c412f15
         return max_val
