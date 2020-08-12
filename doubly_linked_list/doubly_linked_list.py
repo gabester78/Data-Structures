@@ -1,3 +1,4 @@
+
 """
 Each ListNode holds a reference to its previous node
 as well as its next node in the List.
@@ -39,8 +40,11 @@ class DoublyLinkedList:
             self.head = new_node
             self.tail = new_node
         else:
+            # set new node link to previous head
             new_node.next = self.head
+            # set old head link to new node
             self.head.prev = new_node
+            # set new node as head
             self.head = new_node
 
     """
@@ -156,12 +160,20 @@ class DoublyLinkedList:
     """
 
     def get_max(self):
+        # checks if list is empty if so returns none
         if not self.head:
             return None
+        # sets inital value as head value
         max_val = self.head.value
+        # checks next node in line
         current = self.head
+        # loop through the list
         while current:
+            # compare if current value is great than max value
             if current.value > max_val:
+                # if current value is great, current value is now max value
                 max_val = current.value
+            # checks next for another comparison
             current = current.next
+        # gives max value of list
         return max_val
